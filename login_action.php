@@ -13,14 +13,23 @@ $password = mysqli_real_escape_string($objCon, $_POST['password']); // รับ
 $strSQL = "SELECT * FROM user WHERE u_username = '$username' AND u_password = md5('$password')";
 $objQuery = mysqli_query($objCon, $strSQL);
 $row = mysqli_num_rows($objQuery);
-if($row) {
+
+if ($row) {
     $res = mysqli_fetch_assoc($objQuery);
+
     $_SESSION['user_login'] = array(
         'id' => $res['u_id'],
         'fullname' => $res['u_fullname'],
         'level' => $res['u_level']
     );
-    echo '<script>alert("ยินดีต้อนรับคุณ ', $res['u_fullname'],'");window.location="index.php";</script>';
+
+    if ($res['u_level'] === 'administrator') {
+        echo '<script>alert("ยินดีต้อนรับคุณ ', $res['u_fullname'], '");window.location="admin.php";</script>';
+    } else {
+        echo '<script>alert("ยินดีต้อนรับคุณ ', $res['u_fullname'], '");window.location="index.php";</script>';
+    }
 } else {
-    echo '<script>alert("username หรือ password ไม่ถูกต้อง!!");window.location="login.php";</script>';
+    echo '<script>alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!!");window.location="login.php";</script>';
 }
+?>
+

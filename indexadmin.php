@@ -117,233 +117,96 @@ $user = $_SESSION['user_login'];
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-            <div class="content-wrapper">
-
-<section class="content-header">
-<div class="container-fluid">
-<div class="row mb-2">
-<div class="col-sm-6">
-<h1>Editprofile</h1>
-</div>
-<div class="col-sm-6">
-<ol class="breadcrumb float-sm-right">
-<li class="breadcrumb-item"><a href="#">Home</a></li>
-<li class="breadcrumb-item active">User Profile</li>
-</ol>
-</div>
-</div>
-</div>
-</section>
-
-<section class="content">
-<div class="container-fluid">
-<div class="row">
-<div class="col-md-3">
-
-<div class="card card-primary card-outline">
-<div class="card-body box-profile">
-<div class="text-center">
-<img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
-</div>
-<h3 class="profile-username text-center">Nina Mcintire</h3>
-<p class="text-muted text-center">Software Engineer</p>
-<ul class="list-group list-group-unbordered mb-3">
-<li class="list-group-item">
-<b>Followers</b> <a class="float-right">1,322</a>
-</li>
-<li class="list-group-item">
-<b>Following</b> <a class="float-right">543</a>
-</li>
-<li class="list-group-item">
-<b>Friends</b> <a class="float-right">13,287</a>
-</li>
-</ul>
-<a href="Editprofile.php" class="btn btn-primary btn-block"><b>Edit profile</b></a>
-</div>
-
-</div>
-
-
-<div class="card card-primary">
-<div class="card-header">
-<h3 class="card-title">About Me</h3>
-</div>
-
-<div class="card-body">
-<strong><i class="fas fa-book mr-1"></i> Education</strong>
-<p class="text-muted">
-B.S. in Computer Science from the University of Tennessee at Knoxville
-</p>
-<hr>
-<strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-<p class="text-muted">Malibu, California</p>
-<hr>
-<strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-<p class="text-muted">
-<span class="tag tag-danger">UI Design</span>
-<span class="tag tag-success">Coding</span>
-<span class="tag tag-info">Javascript</span>
-<span class="tag tag-warning">PHP</span>
-<span class="tag tag-primary">Node.js</span>
-</p>
-<hr>
-<strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="col-md-9">
-<div class="card">
-<div class="card-header p-2">
-<ul class="nav nav-pills">
-<li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
-</ul>
-</div>
-<div class="card-body">
-<div class="tab-content">
-<div class="active tab-pane" id="activity">
-
-<div class="post">
-<div class="user-block">
-</div>
-
-<span class="float-right">
-<a href="#" class="link-black text-sm">
-</div>
-
-
-<div class="post clearfix">
-<div class="user-block">
-<span class="username">
-<a href="#" class="float-right btn-tool"></a>
-</div>
-
-
-<form class="form-horizontal">
-<div class="input-group input-group-sm mb-0">
-<div class="input-group-append">
-</div>
-</div>
-</form>
-</div>
-<div class="post">
-<div class="user-block">
-<span class="username">
-    
-</div>
-<div class="col-sm-6">
-<div class="row">
-<div class="col-sm-6">
-
-</div>
-
-<div class="col-sm-6">
-
-</div>
-</div>
-</div>
-</div>
-
-<p>
-
-<span class="float-right">
-</a>
-</span>
-</p>
-</div>
-
-</div>
-
-<div class="tab-pane" id="timeline">
-<div class="time-label">
-<span class="bg-danger">
-</span>
-</div>
-
-<div>
-<div class="timeline-item">
-<div class="timeline-footer">
-</div>
-</div>
-</div>
-<div class="tab-pane" id="settings">
-<form class="form-horizontal">
-<div class="form-group row">
-<label for="inputName" class="col-sm-2 col-form-label">Name</label>
-<div class="col-sm-10">
-<input type="email" class="form-control" id="inputName" placeholder="Name">
-</div>
-</div>
-<div class="form-group row">
-<label for="inputEmail" class="col-sm-2 col-form-label">LastName</label>
-<div class="col-sm-10">
-<input type="email" class="form-control" id="inputEmail" placeholder="Lastname">
-</div>
-</div>
-<div class="form-group row">
-<label for="inputName2" class="col-sm-2 col-form-label">Email</label>
-<div class="col-sm-10">
-<input type="text" class="form-control" id="inputName2" placeholder="Email">
-</div>
-</div>
-<div class="form-group row">
-<label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-<div class="col-sm-10">
-<textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-</div>
-</div>
-<div class="form-group row">
-<label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-<div class="col-sm-10">
-<input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-</div>
-</div>
-<div class="form-group row">
-<div class="offset-sm-2 col-sm-10">
-<div class="checkbox">
-<label>
-<input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-</label>
-</div>
-</div>
-</div>
-<div class="form-group row">
-<div class="offset-sm-2 col-sm-10">
-<a type="submit" class="btn btn-danger" href ="Profile.php">Cancel</a> <button type="submit" class="btn btn-primary">Submit</button> 
-</div>
-</div>
-</form>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-</section>
-
-</div>
-
-<footer class="main-footer">
-<div class="float-right d-none d-sm-block">
-<b>Version</b> 3.2.0
-</div>
-<strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-</footer>
-
-<aside class="control-sidebar control-sidebar-dark">
-
-</aside>
-
-</div>        
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Dashboard</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">Primary Card</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">Warning Card</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">Success Card</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Danger Card</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area me-1"></i>
+                                        Area Chart Example
+                                    </div>
+                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-bar me-1"></i>
+                                        Bar Chart Example
+                                    </div>
+                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                DataTable Example
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
