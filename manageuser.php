@@ -1,5 +1,8 @@
 <?php
 session_start();
+include_once('./function.php');
+$objCon = connectDB();
+
 if (!isset($_SESSION['user_login'])) { // ถ้าไม่ได้เข้าระบบอยู่
     header("location: login.php"); // redirect ไปยังหน้า login.php
     exit;
@@ -9,8 +12,13 @@ $user = $_SESSION['user_login'];
 if ($user['level'] != 'administrator') {
     echo '<script>alert("สำหรับผู้ดูแลระบบเท่านั้น");window.location="index.php";</script>';
     exit;
-}
+};
+
+$num = 1;
+$sql = "SELECT * FROM user  ORDER BY u_level ASC";
+$objQuery = mysqli_query($objCon, $sql);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +37,7 @@ if ($user['level'] != 'administrator') {
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
 <div>
         <div class="bg-light p-10 rounded mt-0">
             <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -45,10 +53,6 @@ if ($user['level'] != 'administrator') {
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                </div>
             </form>
             <!-- Navbar-->
             <h5>สวัสดี <?php echo $user['fullname']; ?></h5> <h4>ระดับผู้ใช้ <?php echo $user['level']; ?></h4>
@@ -79,7 +83,6 @@ if ($user['level'] != 'administrator') {
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                                 จัดการบัญชีผู้ใช้
                             </a>
-                            
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="layout-static.html">Static Navigation</a>
@@ -124,16 +127,50 @@ if ($user['level'] != 'administrator') {
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">จัดการบัญชีผู้ใช้</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active"> </li>
-                        </ol>
-                                    <tbody>
-                                       
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                            <li class="breadcrumb-item active">ข้อมูลผู้ใช้ </li>
+                        </ol> 
+             <tbody>
+            </div>
+            
+            <!-- ตารางข้อมูล -->
+            <table class="table mt-4">
+                        <th>รหัส</th>
+                        <th>เลขบัตรประจำตัวประชาชน</th>
+                        <th>ชื่อ - สกุล</th>
+                        <th>วัน/เดือน/ปี เกิด</th>
+                 <tbody>
+                    
+                    <?php
+                    while ($objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC)) {
+                    ?>
+                        <tr>
+                            <td><?php echo $objResult['u_id']; ?></td>
+                            <td><?php echo $objResult['u_fullname']; ?></td>
+                            <td><?php echo $objResult['u_username']; ?></td>
+                            <td><?php echo $objResult['u_level']; ?></td>
+                            <td> 
+                                <a href="update.php?c_id=<?php echo $objResult['u_id']; ?>" class="btn btn-warning btn-sm">Update</a> 
+                                <a href="action_delete.php?c_id=<?php echo $objResult['u_id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('ยืนยัน');">Delete</a> 
+                            </td>
+                        </tr>
+                    <?php } ?>
+                  </tbody>
+               
+               
+                  <!--เพิ่มข้อมูลผู้ใช้ -->
+                 <div class="mt-4">
+                <a href="create.php" class="btn btn-success">เพิ่มข้อมูล</a> 
+                </div>
+             </tbody>
+             <tbody>
+                </tbody>
+            
+            
+            </table>
+                 </div>
+                </div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
