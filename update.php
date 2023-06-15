@@ -2,13 +2,13 @@
 include_once('./function.php');
 $objCon = connectDB();
 
-// $c_id = (int) $_GET['c_id'];
-// $strSQL = "SELECT * FROM contact WHERE c_status = 1 AND c_id = $c_id";
-// $objQuery = mysqli_query($objCon, $strSQL);
-// $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
-// if ($objResult == null) {
-//     echo '<script>alert("ไม่พบข้อมูล!!");window.location="index.php";</script>';
-// }
+$u_id = (int) $_GET['u_id'];
+$strSQL = "SELECT * FROM user WHERE u_id = $u_id";
+$objQuery = mysqli_query($objCon, $strSQL);
+$objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
+if ($objResult == null) {
+    echo '<script>alert("ไม่พบข้อมูล!!");window.location="index.php";</script>';
+}
 
 ?>
 <!doctype html>
@@ -38,41 +38,24 @@ $objCon = connectDB();
                         <div class="row mt-4">
                             <!-- แถวที่ 1 -->
                             <div class="col-md-4 mt-3">
-                                <label for="c_prefix" class="form-label">คำนำหน้าชื่อ</label>
-                                <input type="text" id="c_prefix" list="list_prefix" name="c_prefix" class="form-control" value="<?php echo $objResult['c_prefix']; ?>">
+                                <label for="c_prefix" class="form-label">เพศ</label>
+                                <input type="text" id="c_prefix" list="list_prefix" name="c_prefix" class="form-control" value="<?php echo $objResult['u_sex']; ?>">
                                 <datalist id="list_prefix">
-                                    <option value="นาย">
-                                    <option value="นาง">
-                                    <option value="นางสาว">
+                                    <option value="ชาย">
+                                    <option value="หญิง">
+                                    <option value="อื่นๆ">
                                 </datalist>
                             </div>
                             <div class="col-md-4 mt-3">
-                                <label for="c_firstname" class="form-label">ชื่อ</label>
-                                <input type="text" id="c_firstname" name="c_firstname" class="form-control" value="<?php echo $objResult['c_firstname']; ?>">
+                                <label for="u_firstname" class="form-label">ชื่อ</label>
+                                <input type="text" id="u_firstname" name="u_firstname" class="form-control" value="<?php echo $objResult['u_fristname']; ?>">
                             </div>
                             <div class="col-md-4 mt-3">
-                                <label for="c_lastname" class="form-label">สกุล</label>
-                                <input type="text" id="c_lastname" name="c_lastname" class="form-control" value="<?php echo $objResult['c_lastname']; ?>">
+                                <label for="u_lastname" class="form-label">สกุล</label>
+                                <input type="text" id="u_lastname" name="u_lastname" class="form-control" value="<?php echo $objResult['u_lastname']; ?>">
                             </div>
                             <!-- แถวที่ 2 -->
-                            <div class="col-md-4 mt-3">
-                                <label for="c_idcard" class="form-label">เลขบัตรประจำตัวประชาชน</label>
-                                <input type="text" id="c_idcard" name="c_idcard" class="form-control" value="<?php echo $objResult['c_idcard']; ?>">
-                            </div>
-                            <div class="col-md-4 mt-3">
-                                <label for="c_birthdate" class="form-label">วัน/เดือน/ปี เกิด</label>
-                                <input type="date" id="c_birthdate" name="c_birthdate" class="form-control" value="<?php echo $objResult['c_birthdate']; ?>">
-                            </div>
-                            <div class="col-md-4 mt-3">
-                                <label for="c_mobile" class="form-label">โทรศัพท์</label>
-                                <input type="text" id="c_mobile" name="c_mobile" class="form-control" value="<?php echo $objResult['c_mobile']; ?>">
-                            </div>
-                            <!-- แถวที่ 3 -->
-                            <div class="col-md-12 mt-3">
-                                <label for="c_detail" class="form-label">รายละเอียด</label>
-                                <textarea name="c_detail" id="c_detail" class="form-control" rows="4"><?php echo $objResult['c_detail']; ?></textarea>
-                                <input type="hidden" name="c_id" value="<?php echo $objResult['c_id']; ?>">
-                            </div>
+                            
                             <!-- ปุ่มบันทึก -->
                             <div class="col-md-12 mt-3">
                                 <button type="submit" class="btn btn-primary btn-lg">บันทึกการแก้ไข</button>
@@ -88,8 +71,8 @@ $objCon = connectDB();
                                 <input class="form-control" id="c_image" name="c_image" type="file" onchange="loadFile(event)">
                             </div>
                             <div class="col-md-12 mt-3">
-                                <?php if ($objResult['c_image'] != '') { ?>
-                                    <img src="./images/<?php echo $objResult['c_image']; ?>" class="img-thumbnail" id="c_image_preview" />
+                                <?php if ($objResult['u_image'] != '') { ?>
+                                    <img src="./images/<?php echo $objResult['u_image']; ?>" class="img-thumbnail" id="c_image_preview" />
                                 <?php } else { ?>
                                     <img src="./images/noimg.png" class="img-thumbnail" id="c_image_preview" />
                                 <?php } ?>
