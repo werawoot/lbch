@@ -151,8 +151,8 @@ $objQuery = mysqli_query($objCon, $sql);
                             <td><?php echo $objResult['u_username']; ?></td>
                             <td><?php echo $objResult['u_level']; ?></td>
                             <td> 
-                                <a href="update.php?c_id=<?php echo $objResult['u_id']; ?>" class="btn btn-warning btn-sm">Update</a> 
-                                <a href="action_delete.php?c_id=<?php echo $objResult['u_id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('ยืนยัน');">Delete</a> 
+                                <a href="update.php?u_id=<?php echo $objResult['u_id']; ?>" class="btn btn-warning btn-sm">Update</a> 
+                                <a href="actiondelete.php?u_id=<?php echo $objResult['u_id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('ยืนยัน');">Delete</a> 
                             </td>
                         </tr>
                     <?php } ?>
