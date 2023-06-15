@@ -131,15 +131,21 @@ $objQuery = mysqli_query($objCon, $sql);
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">ข้อมูลผู้ใช้ </li>
                         </ol> 
+                                      <!--เพิ่มข้อมูลผู้ใช้ -->
+              <div class="right panel_toolbox">
+                <a href="create.php" class="btn btn-success">เพิ่มข้อมูล</a> 
+                </div>
              <tbody>
             </div>
             
             <!-- ตารางข้อมูล -->
             <table class="table mt-4">
                         <th>รหัส</th>
-                        <th>เลขบัตรประจำตัวประชาชน</th>
-                        <th>ชื่อ - สกุล</th>
-                        <th>วัน/เดือน/ปี เกิด</th>
+                        <th>ชื่อ</th>
+                        <th></th>
+                        <th>นามสกุล</th>
+                        <th>สถานะผู้ใช้</th>
+                        <th>จัดการข้อมูล</th>
                  <tbody>
                     
                     <?php
@@ -147,7 +153,8 @@ $objQuery = mysqli_query($objCon, $sql);
                     ?>
                         <tr>
                             <td><?php echo $objResult['u_id']; ?></td>
-                            <td><?php echo $objResult['u_fullname']; ?></td>
+                            <td><?php echo $objResult['u_fristname']; ?></td>
+                            <td><?php echo $objResult['u_lastname']; ?></td>
                             <td><?php echo $objResult['u_username']; ?></td>
                             <td><?php echo $objResult['u_level']; ?></td>
                             <td> 
@@ -157,12 +164,7 @@ $objQuery = mysqli_query($objCon, $sql);
                         </tr>
                     <?php } ?>
                   </tbody>
-               
-               
-                  <!--เพิ่มข้อมูลผู้ใช้ -->
-                 <div class="mt-4">
-                <a href="create.php" class="btn btn-success">เพิ่มข้อมูล</a> 
-                </div>
+
              </tbody>
              <tbody>
                 </tbody>
