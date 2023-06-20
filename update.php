@@ -37,25 +37,33 @@ if ($objResult == null) {
                     <div class="col-md-9">
                         <div class="row mt-4">
                             <!-- แถวที่ 1 -->
-                            <div class="col-md-4 mt-3">
-                                <label for="c_prefix" class="form-label">เพศ</label>
-                                <input type="text" id="c_prefix" list="list_prefix" name="c_prefix" class="form-control" value="<?php echo $objResult['u_sex']; ?>">
-                                <datalist id="list_prefix">
+                            <!-- <div class="col-md-4 mt-3"> -->
+                                <!-- <label for="c_prefix" class="form-label">เพศ</label>
+                                <input type="text" id="c_prefix" list="list_prefix" name="c_prefix" class="form-control" value=""> -->
+                                <!-- <datalist id="list_prefix">
                                     <option value="ชาย">
                                     <option value="หญิง">
                                     <option value="อื่นๆ">
-                                </datalist>
+                                </datalist> -->
                             </div>
                             <div class="col-md-4 mt-3">
-                                <label for="u_firstname" class="form-label">ชื่อ</label>
-                                <input type="text" id="u_firstname" name="u_firstname" class="form-control" value="<?php echo $objResult['u_fristname']; ?>">
+                                <label for="u_firstname" class="form-label">ชื่อ นามสกุล</label>
+                                <input type="text" id="u_firstname" name="u_firstname" class="form-control" value="<?php echo $objResult['u_fullname']; ?>">
                             </div>
                             <div class="col-md-4 mt-3">
-                                <label for="u_lastname" class="form-label">สกุล</label>
-                                <input type="text" id="u_lastname" name="u_lastname" class="form-control" value="<?php echo $objResult['u_lastname']; ?>">
+                                <label for="u_lastname" class="form-label">สถานะผู้ใช้</label>
+                                <input type="text" id="level" list="u_level" name="u_lastname" class="form-control" value="<?php echo $objResult['u_level']; ?>">
+                              <datalist id="u_level"> 
+                                    <option value="user">
+                                    <option value="admin">
+                                </datalist> 
                             </div>
-                            <!-- แถวที่ 2 -->
-                            
+                               <!-- ข้อมูลรูปภาพ -->
+                        <div class="row mt-4">
+                            <div class="col-md-12 mt-3">
+                                <label for="c_image" class="form-label">รูปภาพ</label>
+                                <input class="form-control" id="c_image" name="c_image" type="file" onchange="loadFile(event)">
+                            </div>
                             <!-- ปุ่มบันทึก -->
                             <div class="col-md-12 mt-3">
                                 <button type="submit" class="btn btn-primary btn-lg">บันทึกการแก้ไข</button>
@@ -63,22 +71,17 @@ if ($objResult == null) {
                             </div>
                         </div>
                     </div>
-                    <duv class="col-md-3">
-                        <!-- ข้อมูลรูปภาพ -->
-                        <div class="row mt-4">
+                    <div class="col-md-3">
+                     
                             <div class="col-md-12 mt-3">
-                                <label for="c_image" class="form-label">รูปภาพ</label>
-                                <input class="form-control" id="c_image" name="c_image" type="file" onchange="loadFile(event)">
-                            </div>
-                            <div class="col-md-12 mt-3">
-                                <?php if ($objResult['u_image'] != '') { ?>
-                                    <img src="./images/<?php echo $objResult['u_image']; ?>" class="img-thumbnail" id="c_image_preview" />
+                                <?php if ($objResult['c_image'] != '') { ?>
+                                    <img src="./images/<?php echo $objResult['c_image']; ?>" class="img-thumbnail" id="c_image_preview" />
                                 <?php } else { ?>
                                     <img src="./images/noimg.png" class="img-thumbnail" id="c_image_preview" />
                                 <?php } ?>
                             </div>
                         </div>
-                    </duv>
+                    </div>
             </form>
         </div>
     </main>

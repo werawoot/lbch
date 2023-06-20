@@ -137,12 +137,10 @@ $objQuery = mysqli_query($objCon, $sql);
                 </div>
              <tbody>
             </div>
-            
             <!-- ตารางข้อมูล -->
             <table class="table mt-4">
                         <th>รหัส</th>
                         <th>ชื่อ</th>
-                        <th></th>
                         <th>นามสกุล</th>
                         <th>สถานะผู้ใช้</th>
                         <th>จัดการข้อมูล</th>
@@ -153,8 +151,7 @@ $objQuery = mysqli_query($objCon, $sql);
                     ?>
                         <tr>
                             <td><?php echo $objResult['u_id']; ?></td>
-                            <td><?php echo $objResult['u_fristname']; ?></td>
-                            <td><?php echo $objResult['u_lastname']; ?></td>
+                            <td><?php echo $objResult['u_fullname']; ?></td>
                             <td><?php echo $objResult['u_username']; ?></td>
                             <td><?php echo $objResult['u_level']; ?></td>
                             <td> 

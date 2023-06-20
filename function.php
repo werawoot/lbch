@@ -14,8 +14,8 @@ function connectDB()
 $objCon = connectDB();
 
 // Check connection
-if ($objCon->connect_error) {
-  die("Connection failed: " . $objCon->connect_error);
-}
-echo "Connected successfully";
-?>
+// if ($objCon->connect_error) {
+//   die("Connection failed: " . $objCon->connect_error);
+// }
+// echo "Connected successfully";
+// ?>
