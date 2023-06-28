@@ -1,57 +1,39 @@
 <?php
-include_once('./function.php');
-$objCon = connectDB();
+$id = $_POST["u_id"];
 
-$data = $_POST;
-// print_r($data);
-$u_fullname = $data['u_fullname'] ?? '';
-$u_level = $data['u_level'] ?? '';
+$sql = "SELECT * FROM user WHERE u_id = '" . $id . "'";
+$query = mysqli_query($objCon, $sql);
+$objResult = mysqli_fetch_array($query, MYSQLI_ASSOC);
 
-$output_dir = 'images'; // folder
 
-if (isset($_FILES["u_image"]) && isset($_FILES["u_image"]["name"])) {
-    if (!is_array($_FILES["u_image"]["name"])) {
-        $exts = explode('.', $_FILES["u_image"]["name"]);
-        $ext = $exts[count($exts) - 1]; // get ext image ex. jpeg, jpg, png
-        $fileName = date("YmdHis") . '_' . randomString() . "." . $ext;
-        if (file_exists($output_dir . $fileName)) {
-            $fileName = $fileName = date("YmdHis") . '_' . randomString() . "." . $ext;
-        }
-        $u_image = $fileName; // set image value
-        move_uploaded_file($_FILES["u_image"]["tmp_name"], $output_dir . '/' . $fileName);
+if (isset($_POST["submit"])) {
+  $sql_2 = "UPDATE user SET u_fullname = '" . $_POST['u_fullname'] . "', u_username = '" . $_POST['u_username'] . "',u_level = '" . $_POST['u_level'] . "',u_image = '" . $_POST['u_image'] . "' WHERE u_id = '" . $id . "'";
+  $query_2 = mysqli_query($objCon, $sql_2);
 
-        $strSQL = "UPDATE user
-            SET 
-            u_fullname = '$u_fullname',
-            u_level = '$u_level',
-            u_image = '$u_image'
-            WHERE u_id = $u_id";
-    } else {
-        $strSQL = "UPDATE user SET 
-            u_fullname = '$u_fullname',
-            u_level = '$u_level'
-            WHERE u_id = $u_id";
-    }
-} else {
-    $strSQL = "UPDATE user SET 
-        u_fullname = '$u_fullname',
-        u_level = '$u_level'
-        WHERE u_id = $u_id";
-}
-
-$objQuery = mysqli_query($objCon, $strSQL);
-if ($objQuery) {
-    echo '<script>alert("บันทึกการแก้ไขแล้ว");window.location="index.php";</script>';
-} else {
-    echo '<script>alert("พบข้อผิดพลาด!!");window.location="update.php?u_id=' . $u_id . '";</script>';
-}
-
-function randomString($length = 8) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, strlen($characters) - 1)];
-    }
-    return $randomString;
+  header("location:manageuser.php");
+  exit();
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<div class="field item form-group">
+  <label class="col-form-label col-md-3 col-sm-3  label-align"><h4>ระดับผู้ใช้</h4></label>
+    <div class="col-md-6 col-sm-9 ">
+     <select class="form-control" name ="u_level">
+           <option value="user" <?php if ($objResult["u_level"] == 'user') {echo " selected";} ?>>สมาชิก</option>
+            <option value="administrator" <?php if ($objResult["u_level"] == 'administrator') {echo " selected";} ?>>ผู้ดูแลระบบ</option>
+     </select>
+      </div>
+      </div>
+</body>
+</html>
+
+
+
+
