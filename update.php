@@ -2,7 +2,7 @@
 include_once('./function.php');
 $objCon = connectDB();
 
-$id = $_GET["u_id"];
+$id = $_GET["u_ id"];
 
 $sql = "SELECT * FROM user WHERE u_id = '" . $id . "'";
 $query = mysqli_query($objCon, $sql);
