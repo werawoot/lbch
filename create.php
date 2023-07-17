@@ -23,37 +23,28 @@
                 <div class="row">
                     <div class="col-md-9">
                         <!-- ข้อมูลเนื้อหา -->
+                              <!-- แถวที่ 1 -->
                         <div class="row mt-4">
-                            <!-- แถวที่ 1 -->
                             <div class="col-md-4 mt-3">
-                                <label for="c_prefix" class="form-label">คำนำหน้าชื่อ <span class="text-danger">*</span></label>
-                                <input type="text" id="c_prefix" list="list_prefix" name="c_prefix" class="form-control" required>
+                                <label for="u_fullname" class="form-label">ชื่อ <span class="text-danger">*</span></label>
+                                <input type="text" id="u_fullname" name="u_fullname" class="form-control" required>
+                            </div>
+                            <div class="col-md-4 mt-3">
+                                <label for="u_username" class="form-label">สกุล <span class="text-danger">*</span></label>
+                                <input type="text" id="u_username" name="u_username" class="form-control" required>
+                            </div>
+                            <!-- แถวที่ 2 -->
+                                  <div class="col-md-4 mt-3">
+                                <label for="u_level" class="form-label"> level <span class="text-danger">*</span></label>
+                                <input type="text" id="u_level" list="list_prefix" name="u_level" class="form-control" required>
                                 <datalist id="list_prefix">
-                                    <option value="นาย">
-                                    <option value="นาง">
-                                    <option value="นางสาว">
+                                    <option value="admin">
+                                    <option value="user">
                                 </datalist>
                             </div>
                             <div class="col-md-4 mt-3">
-                                <label for="c_firstname" class="form-label">ชื่อ <span class="text-danger">*</span></label>
-                                <input type="text" id="c_firstname" name="c_firstname" class="form-control" required>
                             </div>
                             <div class="col-md-4 mt-3">
-                                <label for="c_lastname" class="form-label">สกุล <span class="text-danger">*</span></label>
-                                <input type="text" id="c_lastname" name="c_lastname" class="form-control" required>
-                            </div>
-                            <!-- แถวที่ 2 -->
-                            <div class="col-md-4 mt-3">
-                                <label for="c_idcard" class="form-label">เลขบัตรประจำตัวประชาชน <span class="text-danger">*</span></label>
-                                <input type="text" id="c_idcard" name="c_idcard" class="form-control" minlength="13" maxlength="13" required>
-                            </div>
-                            <div class="col-md-4 mt-3">
-                                <label for="c_birthdate" class="form-label">วัน/เดือน/ปี เกิด <span class="text-danger">*</span></label>
-                                <input type="date" id="c_birthdate" name="c_birthdate" class="form-control" required>
-                            </div>
-                            <div class="col-md-4 mt-3">
-                                <label for="c_mobile" class="form-label">โทรศัพท์ <span class="text-danger">*</span></label>
-                                <input type="text" id="c_mobile" name="c_mobile" class="form-control" required>
                             </div>
                             <!-- แถวที่ 3 -->
                             <div class="col-md-12 mt-3">
@@ -62,7 +53,7 @@
                             </div>
                             <!-- ปุ่มบันทึก -->
                             <div class="col-md-12 mt-3">
-                                <button type="submit" class="btn btn-primary btn-lg">บันทึก</button>
+                                <button type="submit" class="btn btn-primary btn-lg" onclick="submitForm()" name = "submit">บันทึก</button>
                                 <button type="reset" class="btn btn-light btn-lg">ล้างค่า</button>
                             </div>
                         </div>
@@ -71,11 +62,11 @@
                         <!-- ข้อมูลรูปภาพ -->
                         <div class="row mt-4">
                             <div class="col-md-12 mt-3">
-                                <label for="c_image" class="form-label">รูปภาพ</label>
-                                <input class="form-control" id="c_image" name="c_image" type="file" onchange="loadFile(event)">
+                                <label for="u_image" class="form-label">รูปภาพ</label>
+                                <input class="form-control" id="u_image" name="u_image" type="file" onchange="loadFile(event)">
                             </div>
                             <div class="col-md-12 mt-3">
-                                <img src="./images/noimg.png" class="img-thumbnail" id="c_image_preview" />
+                                <img src="./images/noimg.png" class="img-thumbnail" id="u_image_preview" />
                             </div>
                         </div>
                     </duv>
@@ -95,7 +86,7 @@
         var loadFile = function(event) {
             var reader = new FileReader();
             reader.onload = function() {
-                var output = document.getElementById('c_image_preview');
+                var output = document.getElementById('u_image_preview');
                 output.src = reader.result;
             };
             reader.readAsDataURL(event.target.files[0]);

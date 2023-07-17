@@ -48,7 +48,7 @@ $objQuery = mysqli_query($objCon, $sql);
             </div>
                 
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">  <h5>สวัสดี <?php echo $user['fullname']; ?></h5> </a>
+            <a class="navbar-brand ps-3" href="index.php">  <h5>สวัสดี <?php echo $user['fullname']; ?></h5> </a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -75,9 +75,9 @@ $objQuery = mysqli_query($objCon, $sql);
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                            <a class="nav-link" href="index.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-chart-column"></i></div>
+                                รายงาน
                             </a>
                             <a class="nav-link" href="manageuser.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
@@ -90,33 +90,21 @@ $objQuery = mysqli_query($objCon, $sql);
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-gear"></i></div>
+                                ตั้งค่า
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
+                                        ตั้งค่าบัญชี
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                     </a>
-                                
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
+                                            <a class="nav-link" href="login.html">เข้าสู่ระบบ</a>
+                                            <a class="nav-link" href="register.html">สมัครสมาชิก</a>
+                                            <a class="nav-link" href="password.html">ลืมรหัสผ่าน</a>
                                         </nav>
                                     </div>
                                 </nav>
@@ -161,7 +149,6 @@ $objQuery = mysqli_query($objCon, $sql);
                         </tr>
                     <?php } ?>
                   </tbody>
-
              </tbody>
              <tbody>
                 </tbody>
@@ -183,6 +170,8 @@ $objQuery = mysqli_query($objCon, $sql);
                             </div>
                         </div>
                     </div>
+                    
+                    <div>
                 </footer>
             </div>
         </div>
